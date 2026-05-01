@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clearplay - Focus on the game, not the breakout.</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4F9BFF;
+      --secondary: #038373;
+      --grayLight: #f6f8fa;
+      --gray: #dbeafe;
+      --text: #22223b;
+      --white: #fff;
+    }
+    html, body {
+      padding: 0;
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--grayLight);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+    header, section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 2rem 1.5rem;
+    }
+    /* HERO */
+    .hero {
+      text-align: center;
+      background: linear-gradient(120deg, var(--primary) 0%, var(--secondary) 100%);
+      color: var(--white);
+      border-radius: 0 0 2.5rem 2.5rem;
+      position: relative;
+      padding-top: 5rem;
+      padding-bottom: 6rem;
+    }
+    .hero img {
+      width: 80px;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 {
+      font-size: 2.9rem;
+      font-weight: 700;
+      margin: 0 auto 1rem;
+      line-height: 1.12;
+      letter-spacing: -1px;
+      max-width: 750px;
+    }
+    .hero p {
+      font-size: 1.35rem;
+      font-weight: 400;
+      margin-bottom: 2.6rem;
+      opacity: 0.97;
+    }
+    .hero .cta-btn {
+      background: var(--white);
+      color: var(--primary);
+      font-weight: 600;
+      border-radius: 2rem;
+      border: none;
+      padding: 0.95rem 2.3rem;
+      font-size: 1.15rem;
+      box-shadow: 0 3px 15px 0 rgba(79,155,255,0.18);
+      transition: background 0.15s, color 0.15s;
+      cursor: pointer;
+    }
+    .hero .cta-btn:hover {
+      background: var(--secondary);
+      color: var(--white);
+    }
+    /* SECTIONS */
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--primary);
+      letter-spacing: -1px;
+    }
+    .features, .benefits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      justify-content: center;
+      margin-bottom: 0;
+    }
+    .feature, .benefit {
+      background: var(--white);
+      box-shadow: 0 2px 12px 0 rgba(79,155,255,0.08);
+      border-radius: 1.2rem;
+      flex: 1 1 260px;
+      max-width: 315px;
+      min-width: 220px;
+      padding: 2rem 1.4rem;
+      text-align: left;
+      transition: transform 0.12s;
+      margin-bottom: 1rem;
+    }
+    .feature:hover, .benefit:hover {
+      transform: translateY(-4px) scale(1.015);
+    }
+    .feature-title, .benefit-title {
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+      color: var(--secondary);
+    }
+    /* TESTIMONIALS */
+    .testimonials {
+      background: var(--gray);
+      border-radius: 1.2rem;
+      padding: 3rem 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 3rem;
+    }
+    .testimonial-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .testimonial {
+      background: var(--white);
+      border-radius: 1rem;
+      box-shadow: 0 2px 8px 0 rgba(4,96,190,0.07);
+      padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+      max-width: 330px;
+      flex: 1 1 215px;
+      margin-bottom: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .testimonial-text {
+      font-size: 1.08rem;
+      margin-bottom: 0.9rem;
+      line-height: 1.6;
+      color: #3564a8;
+    }
+    .testimonial-author {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--secondary);
+    }
+    /* PRICING */
+    .pricing-cards {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: stretch;
+      margin-top: 2rem;
+    }
+    .pricing-card {
+      background: var(--white);
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 12px 0 rgba(3,131,115,0.09);
+      text-align: center;
+      padding: 2.5rem 1.2rem;
+      min-width: 230px;
+      max-width: 280px;
+      flex: 1 1 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .pricing-title {
+      font-weight: 700;
+      font-size: 1.17rem;
+      margin-bottom: 0.4rem;
+      color: var(--primary);
+    }
+    .pricing-price {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin: 1rem 0 1.2rem 0;
+    }
+    .pricing-features {
+      margin-bottom: 1.2rem;
+      list-style: none;
+      padding: 0;
+    }
+    .pricing-features li {
+      margin-bottom: 0.35rem;
+      font-size: 1rem;
+      color: #546c89;
+    }
+    .pricing-btn {
+      background: var(--primary);
+      color: var(--white);
+      font-weight: 600;
+      border-radius: 2rem;
+      border: none;
+      padding: 0.85rem 1.7rem;
+      font-size: 1.01rem;
+      transition: background 0.15s;
+      cursor: pointer;
+    }
+    .pricing-btn:hover {
+      background: var(--secondary);
+    }
+    /* CONTACT FORM */
+    .contact-section {
+      background: var(--white);
+      border-radius: 1.3rem;
+      box-shadow: 0 2px 7px 0 rgba(4,96,190,0.04);
+      max-width: 520px;
+      margin: 3.5rem auto 1.5rem auto;
+      padding: 2.5rem 2rem;
+    }
+    form label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+      font-size: 1.03rem;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 0.82rem 0.8rem;
+      margin-bottom: 1.3rem;
+      border: 1px solid var(--gray);
+      border-radius: 0.6rem;
+      font-size: 1rem;
+      resize: none;
+      font-family: 'Inter', Arial, sans-serif;
+      background: #f6faff;
+    }
+    form textarea {
+      height: 98px;
+    }
+    form button {
+      background: var(--primary);
+      color: var(--white);
+      font-weight: 600;
+      border-radius: 2rem;
+      border: none;
+      padding: 1rem 2.2rem;
+      font-size: 1.07rem;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    form button:hover {
+      background: var(--secondary);
+    }
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .features, .benefits, .pricing-cards, .testimonial-list {
+        flex-direction: column;
+        align-items: center;
+      }
+      header, section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+    @media (max-width: 650px) {
+      .hero h1 {
+        font-size: 2.1rem;
+      }
+      .section-title {
+        font-size: 1.37rem;
+      }
+      .hero img {
+        width: 58px;
+      }
+      .contact-section {
+        padding: 1.2rem 0.7rem;
+      }
+    }
+    @media (max-width: 500px) {
+      .hero {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        border-radius: 0 0 1.1rem 1.1rem;
+      }
+      .testimonials {
+        padding: 2.2rem 0.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero" id="home">
+    <img src="logo.png" alt="Your Brand">
+    <h1>Clearplay</h1>
+    <p>Focus on the game, not the breakout.</p>
+    <a href="#contact"><button class="cta-btn">Get Started</button></a>
+  </header>
+
+  <section id="features">
+    <div class="section-title">Features</div>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-title">Fast-Acting Formula</div>
+        <div>See visible results in as little as 7 days with our clinically proven blend.</div>
+      </div>
+      <div class="feature">
+        <div class="feature-title">Non-Greasy Finish</div>
+        <div>Absorbs instantly, leaving skin feeling fresh—never oily or sticky.</div>
+      </div>
+      <div class="feature">
+        <div class="feature-title">Game-Ready Application</div>
+        <div>Lightweight serum goes on in seconds, so you never miss a play.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="benefits">
+    <div class="section-title">Benefits</div>
+    <div class="benefits">
+      <div class="benefit">
+        <div class="benefit-title">Confidence On &amp; Off the Field</div>
+        <div>Stay laser-focused on the moment with clear, healthy-looking skin.</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-title">Fewer Breakouts Over Time</div>
+        <div>Built-in preventative ingredients target blemishes before they appear.</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-title">All-Skin Compatibility</div>
+        <div>Perfect for all skin types—including sensitive—no harsh side effects.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials">
+    <div class="section-title">What Users Are Saying</div>
+    <div class="testimonial-list">
+      <div class="testimonial">
+        <div class="testimonial-text">"Clearplay is the first skincare that actually keeps my skin clear through tournaments. Zero shine, no residue."</div>
+        <div class="testimonial-author">— Jordan R.</div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-text">"Love the fast results. Applied before games, my skin feels light and looks better after a week!"</div>
+        <div class="testimonial-author">— Priya S.</div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-text">"I’ve struggled with breakouts for years. Clearplay is seriously a game changer for my confidence."</div>
+        <div class="testimonial-author">— Max L.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="section-title">Pricing</div>
+    <div class="pricing-cards">
+      <div class="pricing-card">
+        <div class="pricing-title">Starter</div>
+        <div class="pricing-price">$19<span style="font-size:1rem;font-weight:400;">/mo</span></div>
+        <ul class="pricing-features">
+          <li>1 Bottle / Month</li>
+          <li>Free US Shipping</li>
+          <li>Email Support</li>
+        </ul>
+        <button class="pricing-btn">Choose Starter</button>
+      </div>
+      <div class="pricing-card" style="box-shadow:0 4px 18px 0 rgba(79,155,255,0.17); border:2px solid var(--primary)">
+        <div class="pricing-title">Pro</div>
+        <div class="pricing-price">$29<span style="font-size:1rem;font-weight:400;">/mo</span></div>
+        <ul class="pricing-features">
+          <li>2 Bottles / Month</li>
+          <li>Free 2-Day Shipping</li>
+          <li>Priority Email &amp; Chat Support</li>
+        </ul>
+        <button class="pricing-btn">Choose Pro</button>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-title">Team</div>
+        <div class="pricing-price">$49<span style="font-size:1rem;font-weight:400;">/mo</span></div>
+        <ul class="pricing-features">
+          <li>5 Bottles / Month</li>
+          <li>Free Global Shipping</li>
+          <li>Dedicated Account Manager</li>
+        </ul>
+        <button class="pricing-btn">Choose Team</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <div class="section-title">Contact Us</div>
+    <form id="leadform">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+  </section>
+</body>
+</html>
