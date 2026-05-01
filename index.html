@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Clearplay Skincare</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2E8BFF;
+      --secondary: #F3F7FA;
+      --accent: #56E2B9;
+      --muted: #8898AA;
+      --text: #22223B;
+      --background: #fff;
+      --radius: 12px;
+      --max-width: 1200px;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      color: var(--text);
+      background: var(--background);
+      line-height: 1.6;
+    }
+    header {
+      background: var(--secondary);
+      padding: 2.5rem 1rem 4rem 1rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(46,139,255,0.04);
+    }
+    .logo {
+      width: 70px;
+      margin-bottom: 1rem;
+    }
+    .hero-headline {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+    .hero-sub {
+      font-size: 1.25rem;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    section {
+      padding: 4rem 0 2rem 0;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      background: var(--secondary);
+      border-radius: var(--radius);
+      margin-bottom: 2rem;
+      padding: 2rem 1rem;
+    }
+    .feature-item {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 1px 6px rgba(46,139,255,0.08);
+      padding: 2rem 1.25rem;
+      text-align: center;
+      transition: box-shadow 0.2s;
+    }
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+    }
+    .feature-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .feature-desc {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+    .benefits-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 880px;
+      margin: 0 auto 3rem auto;
+      padding: 0;
+      list-style: none;
+    }
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: var(--secondary);
+      border-radius: var(--radius);
+      padding: 1.35rem 1rem;
+    }
+    .benefit-icon {
+      color: var(--accent);
+      font-size: 2rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .benefit-content {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .testimonials-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .testimonial {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 12px rgba(46,139,255,0.10);
+      padding: 1.75rem 1.25rem 1.25rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .testimonial-quote {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      font-style: italic;
+      line-height: 1.5;
+    }
+    .testimonial-user {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+    .testimonial-role {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+    .pricing-table {
+      max-width: 680px;
+      margin: 0 auto 2.5rem auto;
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .pricing-plan {
+      background: var(--secondary);
+      border-radius: var(--radius);
+      padding: 2.1rem 1.5rem;
+      flex: 1 1 260px;
+      box-shadow: 0 2px 8px rgba(46,139,255,0.04);
+      text-align: center;
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .plan-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.7rem;
+    }
+    .plan-price {
+      font-size: 2rem;
+      color: var(--text);
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+      margin-top: 0.2rem;
+    }
+    .plan-desc {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .plan-cta {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 32px;
+      padding: 0.75rem 2rem;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.15s;
+      text-decoration: none;
+      margin-top: auto;
+    }
+    .plan-cta:hover {
+      background: #195eb7;
+    }
+    .contact-section {
+      background: var(--secondary);
+      border-radius: var(--radius);
+      padding: 2.5rem 1rem 2rem 1rem;
+      max-width: 540px;
+      margin: 0 auto 3rem auto;
+      box-shadow: 0 1.5px 8px rgba(46,139,255,0.07);
+    }
+    .contact-title {
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    form label {
+      display: block;
+      font-size: 0.97rem;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+      margin-top: 1rem;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid #e1e5ea;
+      margin-bottom: 0.75rem;
+      font-size: 1rem;
+      color: var(--text);
+      background: #fff;
+      transition: border 0.15s;
+    }
+    form input:focus, form textarea:focus {
+      border-color: var(--primary);
+      outline: none;
+      background: #f7fbff;
+    }
+    form button {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 28px;
+      padding: 0.75rem 2.2rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.15s;
+    }
+    form button:hover {
+      background: #195eb7;
+    }
+    @media (max-width: 800px) {
+      .features { grid-template-columns: 1fr; }
+      .testimonials-container { grid-template-columns: 1fr; }
+      .pricing-table { flex-direction: column; gap: 1.5rem; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 2.5rem 0 1rem 0; }
+      .logo { width: 55px; }
+      .hero-headline { font-size: 2rem; }
+      .hero-sub { font-size: 1.05rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Your Brand" class="logo" />
+    <div class="hero-headline">Focus on the game,<br>not the breakout.</div>
+    <div class="hero-sub">Meet <b>Clearplay</b> — the skincare brand designed for modern achievers who want clear, calm, and confident skin without distraction.</div>
+  </header>
+
+  <main>
+    <!-- Features Section -->
+    <section aria-labelledby="features-title">
+      <h2 id="features-title" style="text-align:center; font-size:1.5rem; font-weight:700; margin-bottom:2rem;color:var(--primary);">Features</h2>
+      <div class="features">
+        <div class="feature-item">
+          <div class="feature-icon">✨</div>
+          <div class="feature-title">Fast-Acting Formula</div>
+          <div class="feature-desc">Clears up blemishes with visible results in as little as 48 hours.</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🛡️</div>
+          <div class="feature-title">Gentle on Skin</div>
+          <div class="feature-desc">Dermatologist-tested and safe for all skin types, even sensitive skin.</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🌿</div>
+          <div class="feature-title">Clean Ingredients</div>
+          <div class="feature-desc">No parabens, fragrance, or harsh chemicals—just pure, effective care.</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🧊</div>
+          <div class="feature-title">Lightweight Texture</div>
+          <div class="feature-desc">Non-greasy, absorbs instantly, and works perfectly under makeup or sunscreen.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section aria-labelledby="benefits-title">
+      <h2 id="benefits-title" style="text-align:center; font-size:1.5rem; font-weight:700; margin-bottom:2rem;color:var(--primary);">Benefits</h2>
+      <ul class="benefits-list">
+        <li class="benefit-item">
+          <span class="benefit-icon">✔️</span>
+          <span class="benefit-content">Get clearer, healthier skin so you can perform your best every day.</span>
+        </li>
+        <li class="benefit-item">
+          <span class="benefit-icon">🔒</span>
+          <span class="benefit-content">Skip the stress—our formula helps prevent future breakouts so you can focus on what matters.</span>
+        </li>
+        <li class="benefit-item">
+          <span class="benefit-icon">⏱️</span>
+          <span class="benefit-content">Free up your time with a simple, effective routine that fits your lifestyle.</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section aria-labelledby="testimonials-title">
+      <h2 id="testimonials-title" style="text-align:center; font-size:1.5rem; font-weight:700; margin-bottom:2rem;color:var(--primary);">What Our Customers Say</h2>
+      <div class="testimonials-container">
+        <div class="testimonial">
+          <div class="testimonial-quote">“Clearplay turned my skincare routine into a breeze. My complexion is clear, and my confidence on camera has never been higher!”</div>
+          <div class="testimonial-user">Morgan A.</div>
+          <div class="testimonial-role">eSports Streamer</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-quote">“Love that it works fast without irritating my sensitive skin. I finally focus on my work, not my skin.”</div>
+          <div class="testimonial-user">Jamie L.</div>
+          <div class="testimonial-role">Startup Founder</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-quote">“I’m on camera daily and breakouts used to distract me. Now, Clearplay keeps me looking and feeling sharp.”</div>
+          <div class="testimonial-user">Chris N.</div>
+          <div class="testimonial-role">Content Creator</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section aria-labelledby="pricing-title">
+      <h2 id="pricing-title" style="text-align:center; font-size:1.5rem; font-weight:700; margin-bottom:2rem;color:var(--primary);">Pricing</h2>
+      <div class="pricing-table">
+        <div class="pricing-plan">
+          <div class="plan-title">Starter</div>
+          <div class="plan-price">$25</div>
+          <div class="plan-desc">1 full-size Clearplay Cleanser.<br>Perfect for newcomers.</div>
+          <a href="#leadform" class="plan-cta">Get Started</a>
+        </div>
+        <div class="pricing-plan" style="border:2px solid var(--primary); background:#fff;">
+          <div class="plan-title">Core Kit</div>
+          <div class="plan-price">$49</div>
+          <div class="plan-desc">Cleanser + Treatment duo.<br>Everything you need for a daily routine.</div>
+          <a href="#leadform" class="plan-cta">Try the Kit</a>
+        </div>
+        <div class="pricing-plan">
+          <div class="plan-title">Pro Bundle</div>
+          <div class="plan-price">$89</div>
+          <div class="plan-desc">Cleanser, Treatment, and Recovery Mask for extra support during high-pressure days.</div>
+          <a href="#leadform" class="plan-cta">Play Like a Pro</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section aria-labelledby="contact-title">
+      <div class="contact-section">
+        <h2 id="contact-title" class="contact-title">Ready to focus on your game?</h2>
+        <form id="leadform" autocomplete="on">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your name">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="you@email.com">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" required placeholder="How can we help you?"></textarea>
+          <button type="submit">Contact Us</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
